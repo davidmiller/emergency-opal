@@ -11,3 +11,4 @@
 .coverage
 htmlcov
 libpeerconnection.log
+emergency/static/css/.sass-cache/

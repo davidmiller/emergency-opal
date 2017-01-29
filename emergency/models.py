@@ -16,7 +16,9 @@ class PastMedicalHistory(models.PastMedicalHistory): pass
 class Treatment(models.Treatment): pass
 class Investigation(models.Investigation): pass
 class SymptomComplex(models.SymptomComplex): pass
-class PatientConsultation(models.PatientConsultation): pass
+
+class PatientConsultation(models.PatientConsultation):
+    plan = fields.TextField(blank=True, null=True)
 
 class EmergencyDepartmentTriage(models.EpisodeSubrecord):
     _is_singleton = True
