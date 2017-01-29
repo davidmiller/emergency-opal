@@ -36,8 +36,10 @@ class PatientsWaitingToBeSeen(core.patient_lists.TaggedPatientList):
     display_name = 'Patients Waiting To Be Seen'
 
     tag = 'waiting'
+    template_name = 'waiting_list.html'
 
     schema = [
+        core.patient_lists.Column(name='hooray', title='Boo', template_path='hello.html'),
         models.Demographics,
         models.Location,
         Observation,

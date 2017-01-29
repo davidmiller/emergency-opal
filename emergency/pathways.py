@@ -20,7 +20,11 @@ class BookingIn(pathways.PagePathway):
 class Triage(pathways.PagePathway):
     display_name = "Triage Entry"
     slug = "triage"
-    steps = (models.Demographics, Observation, models.EmergencyDepartmentTriage,)
+    steps = (
+        models.Demographics,
+        Observation,
+        models.EmergencyDepartmentTriage
+    )
 
     def save(self, data, user):
         patient = super(Triage, self).save(data, user)
@@ -37,11 +41,16 @@ class Examination(pathways.PagePathway):
     display_name = 'Exam'
     slug = 'exam'
     steps = (
-        pathways.Step(template_url='templates/demographics_step.html',
-                      icon='fa fa-user',
-                      display_name='Demographics'),
+        pathways.Step(
+            template_url='templates/demographics_step.html',
+            icon='fa fa-user',
+            display_name='Demographics'
+        ),
         models.SymptomComplex,
-        pathways.MultiSaveStep(template_url='/templates/pmh.html', model=models.PastMedicalHistory),
+        pathways.MultiSaveStep(
+            template_url='/templates/pmh.html',
+            model=models.PastMedicalHistory
+        ),
         models.PatientConsultation
     )
 
